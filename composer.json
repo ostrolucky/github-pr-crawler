@@ -1,0 +1,13 @@
+{
+    "require": {
+        "php": "^8.2",
+        "amphp/http-client": "^5@beta",
+        "symfony/console": "^6.3",
+        "amphp/cache": "^2.0",
+        "amphp/file": "^3.0",
+        "doctrine/dbal": "^3.6"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.3"
+    }
+}
