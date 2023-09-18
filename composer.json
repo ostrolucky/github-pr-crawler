@@ -7,6 +7,11 @@
         "amphp/file": "^3.0",
         "doctrine/dbal": "^3.6"
     },
+    "autoload": {
+        "psr-4": {
+            "Ostrolucky\\GithubPRCrawler\\": "src"
+        }
+    },
     "require-dev": {
         "symfony/var-dumper": "^6.3"
     }

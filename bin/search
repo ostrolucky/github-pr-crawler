@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use Ostrolucky\GithubPRCrawler\Crawler;
+use Ostrolucky\GithubPRCrawler\MatrixMonitor;
+use Ostrolucky\GithubPRCrawler\PatchEvaluator\FinalClassRemovalPatchEvaluator;
+use Ostrolucky\GithubPRCrawler\ProjectsProvider\StaticProjectsProvider;
+use Revolt\EventLoop;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$crawler = new Crawler(
+    new FinalClassRemovalPatchEvaluator(),
+    $projects = (new StaticProjectsProvider())->provideProjects(),
+    $monitor = new MatrixMonitor($projects),
+);
+EventLoop::repeat(2, $monitor->__invoke(...));
+$crawler->crawl();
