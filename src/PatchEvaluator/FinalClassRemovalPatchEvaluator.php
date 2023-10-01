@@ -13,7 +13,7 @@ class FinalClassRemovalPatchEvaluator implements PatchEvaluatorInterface
             return null;
         }
 
-        if (!str_contains($patch, "+class $matches[1] ") && !preg_match("#\+.*/\*.*class $matches[1] #", $patch)) {
+        if (!preg_match("#\+class $matches[1][\s\n]#", $patch) && !preg_match("#\+.*/\*.*class $matches[1] #", $patch)) {
             return null;
         }
 
