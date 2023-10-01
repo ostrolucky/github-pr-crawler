@@ -50,7 +50,7 @@ class Crawler {
                                 $this->monitor->advance($project);
                                 if ($class = $this->patchEvaluator->evaluate($patch)) {
                                     file_put_contents(
-                                        'matches',
+                                        __DIR__.'/../matches-'.$this->patchEvaluator->getName(),
                                         sprintf(
                                             "%s - %s (%s.php)\n",
                                             $edge['node']['permalink'],

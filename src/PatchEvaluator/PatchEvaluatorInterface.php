@@ -7,4 +7,6 @@ namespace Ostrolucky\GithubPRCrawler\PatchEvaluator;
 interface PatchEvaluatorInterface
 {
     public function evaluate(string $patch): ?string;
+
+    public function getName(): string;
 }
