@@ -42,7 +42,7 @@ class Crawler {
 
                             $this->monitor->incrementMax($project);
                             $futures[] = async(function () use ($project, $edge) {
-                                if (!$patch = $this->client->fetch("{$edge['node']['permalink']}.diff")->getBody()->read()) {
+                                if (!$patch = $this->client->fetch("{$edge['node']['permalink']}.diff")->getBody()->buffer()) {
                                     $this->monitor->advance($project);
                                     return;
                                 }

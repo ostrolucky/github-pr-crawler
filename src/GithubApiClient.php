@@ -37,7 +37,7 @@ class GithubApiClient
         while (true) {
             $response = $this->fetch(self::GRAPHQL_URL, 'POST', $this->createGraphQLBody($project, $before));
 
-            $data = json_decode($response->getBody()->read(), true);
+            $data = json_decode($response->getBody()->buffer(), true);
 
             if ($response->isSuccessful()) {
                 break;
